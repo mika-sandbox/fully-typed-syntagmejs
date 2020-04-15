@@ -1,0 +1,16 @@
+{
+  "name": "@mika-sandbox/fully-typed-syntagme",
+  "version": "0.1.0",
+  "description": "Fully-Typed Syntagme.js",
+  "main": "dist/index.js",
+  "repository": "https://github.com/mika-sandbox/fully-typed-syntagmejs",
+  "author": "Fuyuno Mikazuki",
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "syntagme": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
+}
