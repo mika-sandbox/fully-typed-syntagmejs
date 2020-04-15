@@ -1,17 +1,6 @@
 type ValueOf<T> = T[keyof T];
 
 declare module "syntagme" {
-  export type ChangeSets<TActions> = { [T in keyof TActions]: string };
-
-  export type Action<
-    TActions = string,
-    TChangeSets extends { [K in keyof TActions]: any }
-  > = {
-    type: TActions;
-    data: TChangeSets;
-    _data: TChangeSets[TActions];
-  };
-
   export type ActionCreator<
     TParams = any,
     TReturn extends Promise<unknown> | object
@@ -46,7 +35,10 @@ declare module "syntagme" {
     TActionTypes extends string,
     TActions extends { [K in keyof TActionTypes]: unknown }
   > = {
-    [T in TActionTypes]: { data: TActions[T]; type: T };
+    [T in TActionTypes]: {
+      data: TActions[T] extends Promise<infer R> ? R : TActions[T];
+      type: T;
+    };
   };
 
   class Syntagme {
