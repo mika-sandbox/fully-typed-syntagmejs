@@ -40,8 +40,8 @@ const asyncAction = (params) => {
 };
 
 /**
- * @typedef {import('syntagme').AsAction<ACTION_TYPE_ASYNC, () => {}>} AsyncAction
- * @typedef {import('syntagme').AsAction<ACTION_TYPE_ASYNC_RESOLVED, typeof asyncAction>} AsyncActionResolved
+ * @typedef {import('syntagme').AsAction<ACTION_TYPE_ASYNC, typeof asyncAction>} AsyncAction
+ * @typedef {import('syntagme').AsActionResolve<ACTION_TYPE_ASYNC_RESOLVED, typeof asyncAction>} AsyncActionResolved
  */
 flux.actionCreator(ACTION_TYPE_ASYNC, asyncAction);
 

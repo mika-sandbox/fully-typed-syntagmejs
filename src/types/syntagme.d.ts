@@ -31,12 +31,21 @@ declare module "syntagme" {
     [K in TAction]: ReturnType<TActionCreator>;
   };
 
+  export type AsActionResolve<
+    TAction extends string,
+    TActionCreator = ActionCreator
+  > = {
+    [K in TAction]: ReturnType<TActionCreator> extends Promise<infer R>
+      ? R
+      : ReturnType<TActionCreator>;
+  };
+
   export type AsActions<
     TActionTypes extends string,
     TActions extends { [K in keyof TActionTypes]: unknown }
   > = {
     [T in TActionTypes]: {
-      data: TActions[T] extends Promise<infer R> ? R : TActions[T];
+      data: TActions[T];
       type: T;
     };
   };
