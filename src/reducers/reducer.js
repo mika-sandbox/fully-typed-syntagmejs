@@ -6,10 +6,6 @@ import {
 } from "../action-creators/action";
 
 /**
- * @typedef {ValueOf<import("../action-creators/action").Actions>} A
- */
-
-/**
  * @type {import('syntagme').Reducer<import('../action-creators/action').Actions, {}>}
  */
 const reducer = ({ action }, previous = {}) => {
